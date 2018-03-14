@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
-# via https://raspberrypiwonderland.wordpress.com/2014/02/19/servo-test/
+# https://raspberrypiwonderland.wordpress.com/2014/02/19/servo-test/
+# http://abyz.me.uk/rpi/pigpio/python.html#set_servo_pulsewidth
+# http://abyz.me.uk/rpi/pigpio/index.html
+# https://elinux.org/RPi_GPIO_Code_Samples#pigpio_2
 
 import time
 

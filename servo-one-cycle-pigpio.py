@@ -44,26 +44,27 @@ MAX = 2250
 
 STEP = 2
 
-DELAY = 0.001
+DELAY = 0.00005
+#DELAY = 0
 
 pi = pigpio.pi()
 # pulsewidth can only set between 500-2500
 
 try:
     pi.set_mode(PIN, pigpio.OUTPUT)
-    while True:
-        for pulse in range(MAX, MIN, -1 * STEP):
-            print pulse
-            pi.set_servo_pulsewidth(PIN, pulse)
-            time.sleep(DELAY)
-        for pulse in range(MIN, MAX, STEP):
-            print pulse
-            pi.set_servo_pulsewidth(PIN, pulse)
-            time.sleep(DELAY)
+    for pulse in range(MAX, MIN, -1 * STEP):
+        print pulse
+        pi.set_servo_pulsewidth(PIN, pulse)
+        time.sleep(DELAY)
+    for pulse in range(MIN, MAX, STEP):
+        print pulse
+        pi.set_servo_pulsewidth(PIN, pulse)
+        time.sleep(DELAY)
 except KeyboardInterrupt:
     print "Caught KeyboardInterrupt"
     pi.set_servo_pulsewidth(PIN, 0)
 finally:
     print "Stopping"
     pi.stop()
+    print "Done"
 

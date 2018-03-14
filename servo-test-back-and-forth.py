@@ -6,10 +6,10 @@ import wiringpi
 
 # MIN = 50
 # MIN = 100
-MIN = 75
+MIN = 63
 # MAX = 250
 # MAX = 200
-MAX = 225
+MAX = 237
 
 #DELAY_PERIOD = 0.01
 DELAY_PERIOD = 0.005

@@ -39,8 +39,8 @@ PIN = 18
 #MAX = 2500
 
 # Going with
-MIN = 750
-MAX = 2250
+MIN = 850
+MAX = 2150
 
 STEP = 2
 

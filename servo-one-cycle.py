@@ -12,7 +12,8 @@ MIN = 63
 MAX = 237
 
 #DELAY_PERIOD = 0.01
-DELAY_PERIOD = 0.005
+#DELAY_PERIOD = 0.005
+DELAY_PERIOD = 0.01
 
 # use 'GPIO naming'
 wiringpi.wiringPiSetupGpio()
@@ -27,10 +28,10 @@ wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
 wiringpi.pwmSetClock(192)
 wiringpi.pwmSetRange(2000)
 
-for pulse in range(MIN, MAX, 1):
+for pulse in range(MAX, MIN, -1):
         wiringpi.pwmWrite(18, pulse)
         time.sleep(DELAY_PERIOD)
-for pulse in range(MAX, MIN, -1):
+for pulse in range(MIN, MAX, 1):
         wiringpi.pwmWrite(18, pulse)
         time.sleep(DELAY_PERIOD)
 

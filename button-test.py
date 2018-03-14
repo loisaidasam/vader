@@ -1,8 +1,10 @@
 # Button click
 # via https://www.hackster.io/hardikrathod/push-button-with-raspberry-pi-6b6928
 
-import RPi.GPIO as GPIO
+import datetime
 import time
+
+import RPi.GPIO as GPIO
 
 PIN_READ = 23
 
@@ -15,9 +17,9 @@ try:
     while True:
         button_state = GPIO.input(23)
         if button_state:
-            print('Button Pressed...')
+            print "%s\tButton not pressed..." % datetime.datetime.now()
         else:
-            print('Button Pressed...')
+            print "%s\tButton pressed..." % datetime.datetime.now()
         time.sleep(0.2)
 except:
     GPIO.cleanup()

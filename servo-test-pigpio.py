@@ -7,15 +7,29 @@ import time
 import pigpio
 
 # GPIO number
-servos = 18
+PIN = 18
 
-pigpio.start()
+pi = pigpio.pi()
 # pulsewidth can only set between 500-2500
 
 try:
+    pi.set_mode(PIN, pigpio.OUTPUT)
+    pi.set_servo_pulsewidth(PIN, 1500)
+    time.sleep(5)
+    pi.set_servo_pulsewidth(PIN, 1000)
+    time.sleep(5)
+    pi.set_servo_pulsewidth(PIN, 1500)
+    time.sleep(5)
+    #pi.set_servo_pulsewidth(PIN, 0)
+finally:
+    pi.stop()
+
+
+'''
+try:
     while True:
         # 0 degree
-        pigpio.set_servo_pulsewidth(servos, 500)
+        pi.set_servo_pulsewidth(servos, 500)
         print("Servo {} {} micro pulses".format(servos, 1000))
         time.sleep(1)
         # 90 degree
@@ -36,3 +50,4 @@ except KeyboardInterrupt:
     pigpio.set_servo_pulsewidth(servos, 0)
 
 pigpio.stop()
+'''

@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 # Button to GPIO23
 GPIO.setup(PIN_READ, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-command_sound = "/home/sam/source/vader/play-random-sound.sh"
+command_sound = "/home/sam/source/vader/play-random-sound.sh &"
 
 #command = "sudo python /home/sam/source/vader/servo-one-cycle.py"
 command = "python /home/sam/source/vader/servo-one-cycle-pigpio.py"

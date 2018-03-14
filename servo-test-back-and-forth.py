@@ -4,11 +4,11 @@
 import time
 import wiringpi
 
-#MIN = 50
-#MIN = 100
+# MIN = 50
+# MIN = 100
 MIN = 75
-#MAX = 250
-#MAX = 200
+# MAX = 250
+# MAX = 200
 MAX = 225
 
 #DELAY_PERIOD = 0.01
@@ -34,4 +34,3 @@ while True:
         for pulse in range(MAX, MIN, -1):
                 wiringpi.pwmWrite(18, pulse)
                 time.sleep(DELAY_PERIOD)
-

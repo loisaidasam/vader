@@ -39,25 +39,42 @@ PIN = 18
 #MAX = 2500
 
 # Going with
-MIN = 850
+MIN = 950
 MAX = 2150
 
-STEP = 2
+STEP = 1
 
-DELAY = 0.00005
 #DELAY = 0
+#DELAY = 0.00005
+#DELAY = 0.000025
+DELAY = 0.00001
+
+#DELAY_BETWEEN = 0
+DELAY_BETWEEN = 1
+
+#REVERSE = False
+REVERSE = True
 
 pi = pigpio.pi()
 # pulsewidth can only set between 500-2500
 
+range_params = [
+    (MIN, MAX, STEP),
+    (MAX, MIN, -1 * STEP),
+]
+
+if REVERSE:
+    range_params = range_params[::-1]
+
 try:
     pi.set_mode(PIN, pigpio.OUTPUT)
-    for pulse in range(MAX, MIN, -1 * STEP):
-        print pulse
+    for pulse in range(*range_params[0]):
+        #print pulse
         pi.set_servo_pulsewidth(PIN, pulse)
         time.sleep(DELAY)
-    for pulse in range(MIN, MAX, STEP):
-        print pulse
+    time.sleep(DELAY_BETWEEN)
+    for pulse in range(*range_params[1]):
+        #print pulse
         pi.set_servo_pulsewidth(PIN, pulse)
         time.sleep(DELAY)
 except KeyboardInterrupt:

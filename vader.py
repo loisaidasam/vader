@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 import datetime
 import os
@@ -21,7 +22,7 @@ try:
     while True:
         button_state = GPIO.input(23)
         if not button_state:
-            print "%s\tButton pressed..." % datetime.datetime.now()
+            # print "%s\tButton pressed..." % datetime.datetime.now()
             os.system(command_sound)
             os.system(command)
         time.sleep(0.2)

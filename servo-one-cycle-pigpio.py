@@ -42,7 +42,7 @@ PIN = 18
 MIN = 950
 MAX = 2150
 
-STEP = 1
+STEP = 2
 
 #DELAY = 0
 #DELAY = 0.00005
@@ -50,7 +50,7 @@ STEP = 1
 DELAY = 0.00001
 
 #DELAY_BETWEEN = 0
-DELAY_BETWEEN = 1
+DELAY_BETWEEN = 0.7
 
 #REVERSE = False
 REVERSE = True
@@ -78,10 +78,10 @@ try:
         pi.set_servo_pulsewidth(PIN, pulse)
         time.sleep(DELAY)
 except KeyboardInterrupt:
-    print "Caught KeyboardInterrupt"
+    #print "Caught KeyboardInterrupt"
     pi.set_servo_pulsewidth(PIN, 0)
 finally:
-    print "Stopping"
+    #print "Stopping"
     pi.stop()
-    print "Done"
+    #print "Done"
 

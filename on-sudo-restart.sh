@@ -4,7 +4,7 @@
 /usr/bin/pigpiod 
 
 # Set the volume
-/home/sam/source/vader/bin_home/volume_default.sh
+#/home/sam/source/vader/bin_home/volume_default.sh
 
 # Play a welcome sound
 /usr/bin/aplay /home/sam/source/vader/sounds/proud.wav
